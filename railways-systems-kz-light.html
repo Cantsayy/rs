@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100% Казахстанское — Railways Systems KZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal:      #009E8C;
+    --teal-mid:  #00B4A0;
+    --teal-light:#E6F6F4;
+    --teal-bg:   #00A896;
+    --text:      #1A1A1A;
+    --body:      #3A3A3A;
+    --muted:     #6B7280;
+    --border:    #D1E8E5;
+    --bg:        #FFFFFF;
+    --bg2:       #F7FAFA;
+    --card:      #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 64px;
+    background: rgba(10,12,15,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 38px; height: 38px;
+  }
+
+  .logo-text {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  .header-badge {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 64px 80px;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(10,12,15,0.88) 50%, rgba(10,12,15,0.25) 100%),
+      linear-gradient(to top, rgba(10,12,15,0.6) 0%, transparent 55%);
+    z-index: 1;
+  }
+
+  /* warm metal background */
+  .hero-bg-art {
+    position: absolute;
+    inset: 0;
+    background-image: url('0136.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-wheel {
+    display: none;
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px; height: 500px;
+    opacity: 0.9;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    width: 160px;
+    height: auto;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--teal-mid);
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 6.5vw, 80px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--teal-mid);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 400;
+    line-height: 1.3;
+    color: #E8EDF2;
+    max-width: 540px;
+  }
+
+  /* ── RAIL STRIPE ── */
+  .rail-stripe {
+    height: 6px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--teal) 0, var(--teal) 48px,
+      transparent 48px, transparent 60px
+    );
+    opacity: 0.5;
+  }
+
+  /* ── STATS INFOGRAPHIC ── */
+  .stats-section {
+    background: var(--bg2);
+    padding: 72px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .stats-top-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .stats-top-label::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--teal);
+    display: block;
+  }
+
+  .stats-infographic {
+    display: grid;
+    grid-template-columns: 240px 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  /* Big 57% donut */
+  .donut-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .donut-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--body);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .donut-wrap {
+    position: relative;
+    width: 140px; height: 140px;
+  }
+
+  .donut-svg {
+    width: 140px; height: 140px;
+    transform: rotate(-90deg);
+  }
+
+  .donut-bg-circle {
+    fill: none;
+    stroke: #D1E8E5;
+    stroke-width: 10;
+  }
+
+  .donut-fill-circle {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 121; /* 57% */
+    transition: stroke-dashoffset 1.2s ease;
+  }
+
+  .donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .donut-percent {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--teal);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* Info cards */
+  .info-stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--teal);
+  }
+
+  .stat-card-icon {
+    width: 48px; height: 48px;
+    background: var(--teal-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .stat-card-icon svg {
+    width: 24px; height: 24px;
+    stroke: var(--teal);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .stat-card-sublabel {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .stat-card-big {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--teal);
+  }
+
+  .stat-card-unit {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .stat-card-sub {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+  }
+
+  .stat-card-note {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* Train illustration band */
+  .train-band {
+    margin-top: 40px;
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+  }
+
+  .train-band-line {
+    position: absolute;
+    bottom: 20px;
+    left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--teal-light), var(--teal), var(--teal-light));
+  }
+
+  /* ── BODY TEXT ── */
+  .body-section {
+    padding: 72px 64px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .body-p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--body);
+    margin-bottom: 20px;
+  }
+
+  .body-p a {
+    color: var(--teal);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .body-p strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .quote-block {
+    background: var(--teal-bg);
+    padding: 56px 64px;
+  }
+
+  .quote-block-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .quote-mark {
+    font-size: 80px;
+    line-height: 0.7;
+    color: rgba(255,255,255,0.35);
+    font-family: Georgia, serif;
+    font-weight: 900;
+    padding-top: 8px;
+  }
+
+  .quote-text-block p {
+    font-size: clamp(16px, 2vw, 19px);
+    font-style: italic;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 20px;
+  }
+
+  .quote-author-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+
+  .quote-author-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 3px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .sh {
+    max-width: 1080px;
+    margin: 0 auto 44px;
+    padding: 0 64px;
+  }
+
+  .sh-eye {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .sh-eye::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--teal);
+    display: block;
+  }
+
+  .sh-title {
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  /* ── PRODUCTS GRID ── */
+  .products-wrap {
+    padding: 72px 64px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .products-grid {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .prod-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .prod-card:hover {
+    box-shadow: 0 4px 24px rgba(0,158,140,0.10);
+    border-color: var(--teal);
+  }
+
+  .prod-card-bar {
+    width: 40px; height: 3px;
+    background: var(--teal);
+    margin-bottom: 18px;
+  }
+
+  .prod-card-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .prod-card-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  .prod-card-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--teal);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .prod-card-num-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 5px;
+    line-height: 1.45;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-wrap {
+    padding: 72px 64px;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .highlight-title {
+    font-size: clamp(22px, 2.8vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 12px 0 18px;
+  }
+
+  .highlight-p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .highlight-note {
+    font-size: 14px;
+    color: var(--teal);
+    font-weight: 600;
+    padding: 14px 18px;
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    line-height: 1.55;
+  }
+
+  .big-box {
+    background: var(--teal-light);
+    border: 2px solid var(--border);
+    padding: 52px 40px;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .big-box-num {
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--teal);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .big-box-unit {
+    font-size: 30px;
+    font-weight: 300;
+  }
+
+  .big-box-label {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── QUALITY ── */
+  .quality-wrap {
+    padding: 72px 64px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .quality-grid {
+    max-width: 1080px;
+    margin: 44px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 28px;
+    display: flex;
+    gap: 18px;
+  }
+
+  .q-icon {
+    width: 40px; height: 40px;
+    background: var(--teal-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .q-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--teal);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .q-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .q-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── ECONOMICS ── */
+  .econ-wrap {
+    padding: 72px 64px;
+  }
+
+  .econ-grid {
+    max-width: 1080px;
+    margin: 44px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .econ-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px 28px 32px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .econ-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--teal);
+  }
+
+  .econ-seq {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .econ-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .econ-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-wrap {
+    padding: 72px 64px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .tl-left-title {
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 12px 0 18px;
+  }
+
+  .tl-left-p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .timeline {
+    border-top: 1px solid var(--border);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .tl-year {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+  }
+
+  .tl-item-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .tl-item-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PRESIDENT QUOTE ── */
+  .president-wrap {
+    padding: 72px 64px;
+    text-align: center;
+  }
+
+  .pres-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .pres-eye {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C0392B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .pres-eye::before, .pres-eye::after {
+    content: '';
+    width: 36px; height: 1px;
+    background: #C0392B;
+    display: block;
+  }
+
+  .pres-quote {
+    font-size: clamp(16px, 1.9vw, 20px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--body);
+    margin-bottom: 20px;
+  }
+
+  .pres-name {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ── FINAL QUOTE ── */
+  .final-quote-wrap {
+    background: var(--teal-bg);
+    padding: 64px;
+  }
+
+  .fq-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .fq-mark {
+    font-size: 80px;
+    line-height: 0.7;
+    color: rgba(255,255,255,0.3);
+    font-family: Georgia, serif;
+    font-weight: 900;
+    padding-top: 8px;
+  }
+
+  .fq-text {
+    font-size: clamp(15px, 1.8vw, 18px);
+    font-style: italic;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+  }
+
+  .fq-author-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .fq-author-title {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0F1214;
+    padding: 32px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .footer-source {
+    font-size: 12px;
+    color: #444;
+  }
+
+  .footer-source a {
+    color: var(--teal-mid);
+    text-decoration: none;
+  }
+
+  /* ── NUMBERS ROW ── */
+  .numbers-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+  }
+
+  .nr-item {
+    padding: 40px 32px;
+    border-right: 1px solid var(--border);
+  }
+
+  .nr-item:last-child { border-right: none; }
+
+  .nr-num {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .nr-label {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* ── FADE-IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    header { padding: 14px 20px; }
+    .hero  { padding: 0 20px 60px; }
+    .stats-infographic { grid-template-columns: 1fr; }
+    .sh, .body-section, .products-wrap, .econ-wrap,
+    .quality-wrap, .timeline-wrap, .highlight-wrap,
+    .president-wrap, .final-quote-wrap { padding: 48px 20px; }
+    .products-grid, .econ-grid, .quality-grid { grid-template-columns: 1fr; }
+    .highlight-wrap, .timeline-inner { grid-template-columns: 1fr; gap: 32px; }
+    .numbers-row { grid-template-columns: 1fr 1fr; }
+    .nr-item:nth-child(2n) { border-right: none; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-art">
+    <svg class="hero-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="wg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FF8C40" stop-opacity="1"/>
+          <stop offset="30%" stop-color="#E85D1A" stop-opacity="0.85"/>
+          <stop offset="70%" stop-color="#8B2800" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <radialGradient id="rim2" cx="50%" cy="50%" r="50%">
+          <stop offset="72%" stop-color="transparent"/>
+          <stop offset="80%" stop-color="#E85D1A" stop-opacity="0.5"/>
+          <stop offset="87%" stop-color="#FF9950" stop-opacity="1"/>
+          <stop offset="92%" stop-color="#FFB570" stop-opacity="1"/>
+          <stop offset="96%" stop-color="#E85D1A" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <filter id="gf"><feGaussianBlur stdDeviation="6"/></filter>
+        <filter id="sf"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <ellipse cx="250" cy="250" rx="230" ry="230" fill="url(#wg)" filter="url(#gf)" opacity="0.55"/>
+      <circle cx="250" cy="250" r="190" fill="url(#rim2)" opacity="0.75"/>
+      <g stroke="#C84A10" stroke-width="16" stroke-linecap="round" opacity="0.85">
+        <line x1="250" y1="100" x2="250" y2="400"/>
+        <line x1="100" y1="250" x2="400" y2="250"/>
+        <line x1="144" y1="144" x2="356" y2="356"/>
+        <line x1="356" y1="144" x2="144" y2="356"/>
+      </g>
+      <g stroke="#FF8C40" stroke-width="5" stroke-linecap="round" opacity="0.7" filter="url(#sf)">
+        <line x1="250" y1="100" x2="250" y2="400"/>
+        <line x1="100" y1="250" x2="400" y2="250"/>
+        <line x1="144" y1="144" x2="356" y2="356"/>
+        <line x1="356" y1="144" x2="144" y2="356"/>
+      </g>
+      <circle cx="250" cy="250" r="42" fill="#180800" stroke="#E85D1A" stroke-width="7"/>
+      <circle cx="250" cy="250" r="26" fill="#FF8C40" opacity="0.9" filter="url(#sf)"/>
+      <circle cx="250" cy="250" r="11" fill="#FFD4A0"/>
+      <circle cx="250" cy="250" r="190" fill="none" stroke="#FF8C40" stroke-width="2" opacity="0.35"/>
+      <circle cx="250" cy="60" r="4" fill="#FFD4A0" opacity="0.9"/>
+      <circle cx="401" cy="145" r="3" fill="#FFB570" opacity="0.7"/>
+      <circle cx="401" cy="355" r="4" fill="#FFD4A0" opacity="0.8"/>
+      <circle cx="250" cy="440" r="3" fill="#FFB570" opacity="0.65"/>
+      <circle cx="99" cy="355" r="4" fill="#FFD4A0" opacity="0.9"/>
+      <circle cx="99" cy="145" r="3" fill="#FFB570" opacity="0.7"/>
+    </svg>
+  </div>
+  <img src="logo.png" alt="Logo" class="hero-logo">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Промышленный суверенитет</div>
+    <h1 class="hero-title">100%<br>Казах&shy;стан&shy;ское</h1>
+    <p class="hero-subtitle">Как Railways Systems KZ меняет логику железнодорожной отрасли</p>
+  </div>
+</section>
+
+<div class="rail-stripe"></div>
+
+<!-- STATS INFOGRAPHIC -->
+<div class="stats-section fade-in">
+  <div class="stats-inner">
+    <div class="stats-top-label">Состояние инфраструктуры</div>
+    <div class="stats-infographic">
+
+      <!-- Donut 57% -->
+      <div class="donut-block">
+        <div class="donut-label">Текущий износ магистральной железнодорожной сети (МЖС) составляет</div>
+        <div class="donut-wrap">
+          <svg class="donut-svg" viewBox="0 0 100 100">
+            <circle class="donut-bg-circle" cx="50" cy="50" r="45"/>
+            <circle class="donut-fill-circle" cx="50" cy="50" r="45" id="donut-arc"/>
+          </svg>
+          <div class="donut-center">
+            <span class="donut-percent">57%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 1: sleepers -->
+      <div class="info-stat-card">
+        <div class="stat-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="10" width="20" height="4" rx="1"/><line x1="6" y1="6" x2="6" y2="18"/><line x1="12" y1="6" x2="12" y2="18"/><line x1="18" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div class="stat-card-sublabel">Участки с деревянными шпалами занимают</div>
+        <div class="stat-card-big">4,1 <span class="stat-card-unit">тыс. км</span></div>
+        <div class="stat-card-sub">26% <span style="font-weight:400;color:var(--muted)">сети</span></div>
+        <div class="stat-card-note">требуют безотлагательной замены</div>
+      </div>
+
+      <!-- Card 2: fastenings -->
+      <div class="info-stat-card">
+        <div class="stat-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div class="stat-card-sublabel">Участки с устаревшими типами рельсовых скреплений —</div>
+        <div class="stat-card-big">5,7 <span class="stat-card-unit">тыс. км</span></div>
+        <div class="stat-card-sub">37% <span style="font-weight:400;color:var(--muted)">сети</span></div>
+        <div class="stat-card-note">устаревшие типы скреплений</div>
+      </div>
+    </div>
+
+    <!-- Train SVG band -->
+    <div class="train-band">
+      <div class="train-band-line"></div>
+      <svg viewBox="0 0 1080 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100%;opacity:0.18;">
+        <rect x="80" y="35" width="340" height="28" rx="3" stroke="#009E8C" stroke-width="1.5"/>
+        <rect x="84" y="39" width="60" height="20" rx="2" stroke="#009E8C" stroke-width="1"/>
+        <rect x="150" y="39" width="60" height="20" rx="2" stroke="#009E8C" stroke-width="1"/>
+        <rect x="216" y="39" width="60" height="20" rx="2" stroke="#009E8C" stroke-width="1"/>
+        <rect x="282" y="39" width="60" height="20" rx="2" stroke="#009E8C" stroke-width="1"/>
+        <rect x="348" y="39" width="60" height="20" rx="2" stroke="#009E8C" stroke-width="1"/>
+        <!-- wheels -->
+        <circle cx="110" cy="64" r="7" stroke="#009E8C" stroke-width="1.2"/>
+        <circle cx="145" cy="64" r="7" stroke="#009E8C" stroke-width="1.2"/>
+        <circle cx="240" cy="64" r="7" stroke="#009E8C" stroke-width="1.2"/>
+        <circle cx="275" cy="64" r="7" stroke="#009E8C" stroke-width="1.2"/>
+        <circle cx="370" cy="64" r="7" stroke="#009E8C" stroke-width="1.2"/>
+        <circle cx="405" cy="64" r="7" stroke="#009E8C" stroke-width="1.2"/>
+        <!-- rail -->
+        <line x1="0" y1="72" x2="1080" y2="72" stroke="#009E8C" stroke-width="1.5"/>
+        <line x1="0" y1="75" x2="1080" y2="75" stroke="#009E8C" stroke-width="0.5" stroke-dasharray="40 10"/>
+        <!-- ties -->
+        <line x1="60" y1="69" x2="60" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="120" y1="69" x2="120" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="180" y1="69" x2="180" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="240" y1="69" x2="240" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="300" y1="69" x2="300" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="360" y1="69" x2="360" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="420" y1="69" x2="420" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="500" y1="69" x2="500" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="560" y1="69" x2="560" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="620" y1="69" x2="620" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="680" y1="69" x2="680" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="740" y1="69" x2="740" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="800" y1="69" x2="800" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="860" y1="69" x2="860" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="920" y1="69" x2="920" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="980" y1="69" x2="980" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <line x1="1040" y1="69" x2="1040" y2="78" stroke="#009E8C" stroke-width="2"/>
+        <!-- decorative waves -->
+        <path d="M460 55 Q510 45 560 55 Q610 65 660 55 Q710 45 760 55 Q810 65 860 55 Q910 45 960 55" stroke="#009E8C" stroke-width="1" opacity="0.5" fill="none"/>
+        <path d="M620 50 Q670 40 720 50 Q770 60 820 50 Q870 40 920 50 Q970 60 1020 50" stroke="#009E8C" stroke-width="0.7" opacity="0.3" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- KEY NUMBERS ROW -->
+<div class="numbers-row fade-in">
+  <div class="nr-item">
+    <div class="nr-num">33 млн</div>
+    <div class="nr-label">тонн транзитных перевозок через Казахстан в 2025 г.</div>
+  </div>
+  <div class="nr-item">
+    <div class="nr-num">289 млрд</div>
+    <div class="nr-label">тонно-километров — тарифный грузооборот КТЖ</div>
+  </div>
+  <div class="nr-item">
+    <div class="nr-num">127</div>
+    <div class="nr-label">нарушений безопасности движения зафиксировано в 2022 году</div>
+  </div>
+  <div class="nr-item">
+    <div class="nr-num">16 тыс. км</div>
+    <div class="nr-label">путей требуют ремонта или нового строительства</div>
+  </div>
+</div>
+
+<!-- BODY TEXT -->
+<div class="body-section fade-in">
+  <p class="body-p">Такое состояние инфраструктуры ведёт к прямым рискам: в 2022 году было зафиксировано 127 нарушений безопасности движения, возникает дефицит пропускной способности и фиксируются отказы в перевозках на стыковых пунктах пропуска.</p>
+  <p class="body-p">Упор на импортные комплектующие и технику не менее рискован из-за колебания валют, перебоев с логистикой и длительных сроков поставок. Посему в последние годы особенно остро встал вопрос формирования внутри страны железнодорожного машиностроения полного цикла.</p>
+  <p class="body-p">Ответ на него даёт <a href="#">Railways Systems KZ</a>. RWS KZ не просто производит отдельные детали — он создаёт технологическую цепочку от выплавки стали до выпуска готового подвижного состава.</p>
+</div>
+
+<!-- QUOTE 1 -->
+<div class="quote-block fade-in">
+  <div class="quote-block-inner">
+    <div class="quote-mark">&ldquo;</div>
+    <div class="quote-text-block">
+      <p>Наша цель — полностью казахстанский продукт для железной дороги. У страны есть всё: сырьё, металлургия, кадры. Мы не видим причин зависеть от импорта там, где можем производить сами. RWS KZ создаёт полный цикл внутри Казахстана — это вклад в промышленный суверенитет страны</p>
+      <div class="quote-author-name">Сергей Павлингер</div>
+      <div class="quote-author-title">генеральный директор RWS Holding</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products-wrap">
+  <div class="sh fade-in" style="padding:0;max-width:1080px;margin:0 auto 44px;">
+    <div class="sh-eye">Продукция верхнего строения пути</div>
+    <h2 class="sh-title">Холдинг закрывает потребность по всем ключевым позициям</h2>
+  </div>
+  <div class="products-grid fade-in">
+    <div class="prod-card">
+      <div class="prod-card-bar"></div>
+      <div class="prod-card-name">Стрелочные переводы</div>
+      <div class="prod-card-desc">Новое поколение — гибкие остряки и моноблочные крестовины. Обеспечивают скорость движения до 160 км/ч. Испытания завершены.</div>
+      <div class="prod-card-num">1 450</div>
+      <div class="prod-card-num-label">комплектов в год + 2 600 крестовин + 3 500 ремкомплектов</div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-card-bar"></div>
+      <div class="prod-card-name">Рельсовые скрепления</div>
+      <div class="prod-card-desc">Обеспечивают стабильность рельсов при температурных перепадах, характерных для казахстанского климата — от −40 до +40°C.</div>
+      <div class="prod-card-num">1,1 млн</div>
+      <div class="prod-card-num-label">комплектов рельсового скрепления ежегодно</div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-card-bar"></div>
+      <div class="prod-card-name">Железобетонные шпалы</div>
+      <div class="prod-card-desc">Немецкая технология Long Line обеспечивает повышенную прочность. Сокращает эксплуатационные расходы в долгосрочной перспективе.</div>
+      <div class="prod-card-num">1 008</div>
+      <div class="prod-card-num-label">комплектов ж/б брусьев для стрелочных переводов в год</div>
+    </div>
+    <div class="prod-card">
+      <div class="prod-card-bar"></div>
+      <div class="prod-card-name">Кузнечно-бандажные изделия</div>
+      <div class="prod-card-desc">Запущен весной 2025 года — уникальный комплекс. Бандажи, зубчатые колёса, черновые оси. В перспективе — запасные части для горных машин.</div>
+      <div class="prod-card-num">2025</div>
+      <div class="prod-card-num-label">год запуска — первое производство такого типа в Казахстане</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHEELS HIGHLIGHT -->
+<div class="highlight-wrap fade-in">
+  <div>
+    <div class="sh-eye" style="padding:0;">Цельнокатаные колёса</div>
+    <h2 class="highlight-title">Единственное производство подобного профиля в Казахстане</h2>
+    <p class="highlight-p">Рынок грузовых вагонов остро нуждается в стабильных поставках колёс. RWS KZ решает эту задачу через единственное в стране предприятие по производству цельнокатаных колёс.</p>
+    <p class="highlight-p">Мощность — до 300 тыс. колёс в год. Достаточно, чтобы покрыть значительную часть внутреннего спроса и снизить зависимость от внешних поставок.</p>
+    <p class="highlight-note">Холдинг проходит сертификацию по стандартам Deutsche Bahn — открывает экспортный потенциал на европейские рынки.</p>
+  </div>
+  <div class="big-box">
+    <div class="big-box-num">300<span class="big-box-unit">тыс</span></div>
+    <div class="big-box-label">цельнокатаных колёс в год —<br>мощность единственного<br>в Казахстане завода</div>
+  </div>
+</div>
+
+<!-- AXES NUMBERS -->
+<div class="numbers-row fade-in">
+  <div class="nr-item" style="grid-column:span 2">
+    <div class="nr-num">20 тыс.</div>
+    <div class="nr-label">колёсных пар ежегодно — производственные линии из Чехии и Словакии</div>
+  </div>
+  <div class="nr-item" style="grid-column:span 2">
+    <div class="nr-num">42 тыс.</div>
+    <div class="nr-label">осей ежегодно — основа ремонтной базы растущего грузооборота</div>
+  </div>
+</div>
+
+<!-- QUALITY -->
+<div class="quality-wrap fade-in">
+  <div style="max-width:1080px;margin:0 auto;">
+    <div class="sh-eye" style="padding:0;">Контроль качества</div>
+    <h2 class="sh-title" style="margin-top:12px;">Лаборатории на базе каждого предприятия</h2>
+  </div>
+  <div class="quality-grid">
+    <div class="q-card">
+      <div class="q-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+      <div>
+        <div class="q-title">Механические свойства стали</div>
+        <div class="q-desc">Растяжение, ударная вязкость, твёрдость — автоматизированная обработка данных без ручного ввода.</div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+      <div>
+        <div class="q-title">Химический состав</div>
+        <div class="q-desc">Загрязнённость стали неметаллическими включениями, микро- и макроструктура, величина зерна.</div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+      <div>
+        <div class="q-title">Стандарты Индустрии 4.0</div>
+        <div class="q-desc">Специалисты выбирают ГОСТ, вводят ID — программа выполняет все расчёты автоматически.</div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div>
+        <div class="q-title">Полный контроль параметров</div>
+        <div class="q-desc">По каждому виду изделий контролируются все параметры, предусмотренные документацией.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ECONOMICS -->
+<div class="econ-wrap fade-in">
+  <div style="max-width:1080px;margin:0 auto;">
+    <div class="sh-eye" style="padding:0;">Экономика локализации</div>
+    <h2 class="sh-title" style="margin-top:12px;">Четыре ключевых преимущества для отрасли</h2>
+  </div>
+  <div class="econ-grid">
+    <div class="econ-card">
+      <div class="econ-seq">01</div>
+      <div class="econ-title">Снижение валютной зависимости</div>
+      <div class="econ-desc">Цена продукции перестаёт следовать за колебаниями курса тенге к доллару и евро — бюджет заказчика становится предсказуемым.</div>
+    </div>
+    <div class="econ-card">
+      <div class="econ-seq">02</div>
+      <div class="econ-title">Сокращение логистических издержек</div>
+      <div class="econ-desc">Производство внутри страны убирает затраты на транспортировку тяжёлых и габаритных изделий через границы. Поставки — быстрее и дешевле.</div>
+    </div>
+    <div class="econ-card">
+      <div class="econ-seq">03</div>
+      <div class="econ-title">Производственная интеграция</div>
+      <div class="econ-desc">Собственная металлургия, литейное производство и сборочные предприятия в одном холдинге — без цепочки посредников и наценок.</div>
+    </div>
+    <div class="econ-card">
+      <div class="econ-seq">04</div>
+      <div class="econ-title">Технологическая независимость</div>
+      <div class="econ-desc">Промышленная база, не зависящая от геополитических и торговых ограничений. Суверенитет как конкурентное преимущество страны.</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE 2 -->
+<div class="quote-block fade-in">
+  <div class="quote-block-inner">
+    <div class="quote-mark">&ldquo;</div>
+    <div class="quote-text-block">
+      <p>Рост перевозок требует не только модернизации инфраструктуры, но и развития собственного производства. Наша задача — максимально локализовать выпуск ключевой железнодорожной продукции внутри Казахстана и обеспечить отрасль надёжными решениями отечественного производства</p>
+      <div class="quote-author-name">Роман Павлингер</div>
+      <div class="quote-author-title">первый заместитель генерального директора RWS Holding</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-wrap">
+  <div class="timeline-inner fade-in">
+    <div>
+      <div class="sh-eye" style="padding:0;">Металлургическая база</div>
+      <h2 class="tl-left-title">Завершение полного производственного цикла</h2>
+      <p class="tl-left-p">В 2029 году холдинг планирует запуск электрометаллургического завода мощностью до 1 млн тонн стали в год. Предприятие будет выпускать низколегированные и конструкционные стали специального назначения.</p>
+      <p class="tl-left-p">Речь идёт о новой промышленной модели: от выплавки специальных марок стали до экспорта готовых высокотехнологичных изделий.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div>
+          <div class="tl-item-title">Запуск кузнечно-бандажного комплекса</div>
+          <div class="tl-item-desc">Уникальное производство бандажей, зубчатых колёс и осей — первое в Казахстане.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Сейчас</div>
+        <div>
+          <div class="tl-item-title">Сертификация Deutsche Bahn</div>
+          <div class="tl-item-desc">Открывает экспортный потенциал цельнокатаных колёс на европейские рынки.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Скоро</div>
+        <div>
+          <div class="tl-item-title">Автомобилевозы и крытые вагоны</div>
+          <div class="tl-item-desc">Расширение линейки подвижного состава RWS Wagon на новые сегменты рынка.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2029</div>
+        <div>
+          <div class="tl-item-title">Электрометаллургический завод</div>
+          <div class="tl-item-desc">До 1 млн тонн специальных марок стали в год. Замкнутый полный производственный цикл внутри Казахстана.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRESIDENT QUOTE -->
+<div class="president-wrap fade-in">
+  <div class="pres-inner">
+    <div class="pres-eye">Президент Казахстана</div>
+    <p class="pres-quote">«Мы продолжаем экспортировать продукцию первичной переработки и импортировать товары высокого передела. Парадокс. Эта практика должна сойти на нет. Производство продукции более высокого передела с последующим экспортом должно стать коммерчески более выгодным, чем вывоз просто сырья»</p>
+    <div class="pres-name">Касым-Жомарт Токаев, Президент Республики Казахстан</div>
+  </div>
+</div>
+
+<!-- FINAL QUOTE -->
+<div class="final-quote-wrap fade-in">
+  <div class="fq-inner">
+    <div class="fq-mark">&ldquo;</div>
+    <div>
+      <p class="fq-text">Запуск электрометаллургического завода — следующий шаг к полному производственному циклу внутри Казахстана. Этот проект позволит снизить импортозависимость, увеличить выпуск продукции высокого передела и укрепить экспортный потенциал страны. Но для компании это больше, чем новый объект. Речь идёт о новой промышленной модели: от выплавки специальных марок стали до экспорта готовых высокотехнологичных изделий. Это путь к реальному промышленному суверенитету Казахстана</p>
+      <div class="fq-author-name">Сергей Павлингер</div>
+      <div class="fq-author-title">генеральный директор RWS Holding</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-text">Railways Systems KZ · RWS Holding</div>
+  <div class="footer-source">Спецпроект · <a href="https://special.zakon.kz/railway_industry_kz">zakon.kz</a></div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // Animate donut on enter
+  const donutArc = document.getElementById('donut-arc');
+  const donutObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        // 57% of circumference (2πr ≈ 283)
+        donutArc.style.strokeDashoffset = '121';
+        donutObs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  if (donutArc) donutObs.observe(donutArc);
+</script>
+</body>
+</html>
